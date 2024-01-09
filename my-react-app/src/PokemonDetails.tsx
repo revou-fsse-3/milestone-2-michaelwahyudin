@@ -1,5 +1,5 @@
 // src/components/PokemonDetails.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -26,6 +26,9 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // New state for the form input
+  const [newPokemonName, setNewPokemonName] = useState('');
+
   useEffect(() => {
     const fetchPokemonDetails = async () => {
       try {
@@ -48,6 +51,27 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
     fetchPokemonDetails();
   }, [name]);
 
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!newPokemonName.trim()) {
+      // If input is empty, do not proceed
+      console.error('Pokemon name cannot be empty');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${newPokemonName.toLowerCase()}`);
+      setPokemonDetails(response.data);
+    } catch (error) {
+      console.error(`Error fetching details for ${newPokemonName}:`, error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -68,6 +92,19 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
       ) : (
         <p>No details available.</p>
       )}
+
+      {/* Form for entering a new Pokemon name */}
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter a Pokemon name:
+          <input
+            type="text"
+            value={newPokemonName}
+            onChange={(e) => setNewPokemonName(e.target.value)}
+          />
+        </label>
+        <button type="submit">Fetch Pokemon Details</button>
+      </form>
     </div>
   );
 };
