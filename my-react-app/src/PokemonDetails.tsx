@@ -12,6 +12,9 @@ interface Ability {
 interface Pokemon {
   name: string;
   abilities: Ability[];
+  sprites: {
+    front_default: string;
+  };
 }
 
 interface PokemonDetailsProps {
@@ -54,6 +57,7 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
       <h2>{name} Details</h2>
       {pokemonDetails ? (
         <div>
+          <img src={pokemonDetails.sprites.front_default} alt={`${name} sprite`} />
           <h3>Abilities</h3>
           <ul>
             {pokemonDetails.abilities.map((ability, index) => (
