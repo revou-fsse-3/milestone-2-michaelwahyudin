@@ -1,4 +1,3 @@
-// src/components/PokemonList.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -25,7 +24,6 @@ const PokemonList: React.FC = () => {
   }, []);
 
   const handleSearch = () => {
-    // Filter the full list based on the entered search term
     const filteredPokemon = fullPokemonList.filter((pokemon) =>
       pokemon.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -34,28 +32,51 @@ const PokemonList: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4">Pokemon List</h2>
-      <div className="mb-4 flex items-center">
+      <div className="mb-8 flex items-center justify-between">
+        <h1 className="text-4xl font-bold">Pokemon App</h1>
+        <div className="flex items-center space-x-4">
+          {/* Use inline styles to conditionally hide the links */}
+          <Link
+            to="/"
+            className={`text-blue-500 hover:underline transition duration-300 ease-in-out transform ${
+              process.env.NODE_ENV === 'production' ? 'invisible' : ''
+            }`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/favorites"
+            className={`text-blue-500 hover:underline transition duration-300 ease-in-out transform ${
+              process.env.NODE_ENV === 'production' ? 'invisible' : ''
+            }`}
+          >
+            Favorites
+          </Link>
+        </div>
+      </div>
+
+      <div className="mb-4">
         <input
           type="text"
           placeholder="Search Pokemon"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-2 border rounded-md mr-2"
+          className="border border-gray-300 rounded p-2 w-full"
         />
         <button
           onClick={handleSearch}
-          className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+          className="bg-blue-500 text-white py-2 px-4 rounded ml-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-300 ease-in-out"
         >
           Search
         </button>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredPokemonList.map((pokemonName) => (
           <Link
             key={pokemonName}
             to={`/pokemon/${pokemonName.toLowerCase()}`}
-            className="transition duration-300 transform hover:scale-105"
+            className="hover:transform hover:scale-105 transition duration-300 ease-in-out"
           >
             <PokemonThumbnail name={pokemonName} />
           </Link>
