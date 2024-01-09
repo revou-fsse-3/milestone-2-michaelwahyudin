@@ -35,23 +35,6 @@ const PokemonList: React.FC = () => {
       <div className="mb-8 flex items-center justify-between">
         <h1 className="text-4xl font-bold">Pokemon App</h1>
         <div className="flex items-center space-x-4">
-          {/* Use inline styles to conditionally hide the links */}
-          <Link
-            to="/"
-            className={`text-blue-500 hover:underline transition duration-300 ease-in-out transform ${
-              process.env.NODE_ENV === 'production' ? 'invisible' : ''
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/favorites"
-            className={`text-blue-500 hover:underline transition duration-300 ease-in-out transform ${
-              process.env.NODE_ENV === 'production' ? 'invisible' : ''
-            }`}
-          >
-            Favorites
-          </Link>
         </div>
       </div>
 
