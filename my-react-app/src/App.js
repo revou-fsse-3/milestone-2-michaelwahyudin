@@ -1,9 +1,9 @@
 // src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import PokemonList from './PokemonList.tsx';
-import PokemonDetails from './PokemonDetails.tsx';
-import FavoritePokemonList from './FavoritePokemonList.tsx';
+import PokemonList from './PokemonList';
+import PokemonDetails from './PokemonDetails';
+import FavoritePokemonList from './FavoritePokemonList';
 
 import 'tailwindcss/tailwind.css';  // Import Tailwind CSS styles
 

@@ -1,14 +1,8 @@
-// src/components/PokemonThumbnail.tsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-interface PokemonThumbnailProps {
-  name: string;
-  onClick?: () => void;
-}
-
-const PokemonThumbnail: React.FC<PokemonThumbnailProps> = ({ name, onClick }) => {
-  const [pokemonSprite, setPokemonSprite] = useState<string | null>(null);
+const PokemonThumbnail = ({ name, onClick }) => {
+  const [pokemonSprite, setPokemonSprite] = useState(null);
 
   useEffect(() => {
     const fetchPokemonSprite = async () => {

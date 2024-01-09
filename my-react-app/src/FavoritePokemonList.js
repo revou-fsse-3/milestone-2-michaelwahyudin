@@ -1,11 +1,7 @@
-// src/components/FavoritePokemonList.tsx
+// src/components/FavoritePokemonList.js
 import React from 'react';
 
-interface FavoritePokemonListProps {
-  favorites: string[];
-}
-
-const FavoritePokemonList: React.FC<FavoritePokemonListProps> = ({ favorites }) => {
+const FavoritePokemonList = ({ favorites }) => {
   return (
     <div>
       <h2>Favorite Pokemon</h2>

@@ -2,29 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-interface Ability {
-  ability: {
-    name: string;
-  };
-}
-
-interface Pokemon {
-  name: string;
-  abilities: Ability[];
-  sprites: {
-    front_default: string;
-  };
-}
-
-interface PokemonDetailsProps {
-  // Add any other props if needed
-}
-
-const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
+const PokemonDetails = () => {
   const { name } = useParams();
-  const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const [loading, setLoading] = useState(true);
+  const [pokemonDetails, setPokemonDetails] = useState(null);
+  // eslint-disable-next-line no-unused-vars
+  const [loading, setLoading] = useState(true);
 
   const [newPokemonName, setNewPokemonName] = useState('');
 
@@ -48,7 +30,7 @@ const [loading, setLoading] = useState(true);
     fetchPokemonDetails();
   }, [name]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!newPokemonName.trim()) {
@@ -57,12 +39,13 @@ const [loading, setLoading] = useState(true);
     }
 
     try {
-      setLoading(true);
+      // eslint-disable-next-line no-unused-vars
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${newPokemonName.toLowerCase()}`);
       setPokemonDetails(response.data);
     } catch (error) {
       console.error(`Error fetching details for ${newPokemonName}:`, error);
     } finally {
+      // eslint-disable-next-line no-unused-vars
       setLoading(false);
     }
   };

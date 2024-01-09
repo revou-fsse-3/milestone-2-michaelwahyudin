@@ -3,16 +3,16 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import PokemonThumbnail from './PokemonThumbnail';
 
-const PokemonList: React.FC = () => {
-  const [fullPokemonList, setFullPokemonList] = useState<string[]>([]);
-  const [filteredPokemonList, setFilteredPokemonList] = useState<string[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>('');
+const PokemonList = () => {
+  const [fullPokemonList, setFullPokemonList] = useState([]);
+  const [filteredPokemonList, setFilteredPokemonList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchFullPokemonList = async () => {
       try {
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151');
-        const allPokemon = response.data.results.map((pokemon: { name: string }) => pokemon.name);
+        const allPokemon = response.data.results.map((pokemon) => pokemon.name);
         setFullPokemonList(allPokemon);
         setFilteredPokemonList(allPokemon);
       } catch (error) {
@@ -34,8 +34,7 @@ const PokemonList: React.FC = () => {
     <div className="container mx-auto p-4">
       <div className="mb-8 flex items-center justify-between">
         <h1 className="text-4xl font-bold">Pokemon App</h1>
-        <div className="flex items-center space-x-4">
-        </div>
+        <div className="flex items-center space-x-4"></div>
       </div>
 
       <div className="mb-4">
