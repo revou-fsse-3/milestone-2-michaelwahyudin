@@ -4,9 +4,10 @@ import axios from 'axios';
 
 interface PokemonThumbnailProps {
   name: string;
+  onClick?: () => void;
 }
 
-const PokemonThumbnail: React.FC<PokemonThumbnailProps> = ({ name }) => {
+const PokemonThumbnail: React.FC<PokemonThumbnailProps> = ({ name, onClick }) => {
   const [pokemonSprite, setPokemonSprite] = useState<string | null>(null);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const PokemonThumbnail: React.FC<PokemonThumbnailProps> = ({ name }) => {
   }, [name]);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center" onClick={onClick}>
       <img
         src={pokemonSprite || 'https://via.placeholder.com/96'}
         alt={`${name} sprite`}
