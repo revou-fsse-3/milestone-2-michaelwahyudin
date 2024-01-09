@@ -9,11 +9,10 @@ import 'tailwindcss/tailwind.css';  // Import Tailwind CSS styles
 
 const App = () => {
   const [favorites, setFavorites] = useState([]);
-// eslint-disable-next-line no-unused-vars
-const handleAddToFavorites = (pokemon) => {
-  setFavorites((prevFavorites) => [...prevFavorites, pokemon]);
-};
 
+  const handleAddToFavorites = (pokemon) => {
+    setFavorites((prevFavorites) => [...prevFavorites, pokemon]);
+  };
 
   return (
     <Router>
@@ -32,7 +31,10 @@ const handleAddToFavorites = (pokemon) => {
         <div className="container mx-auto p-4">
           <Routes>
             <Route path="/pokemon/:name" element={<PokemonDetails />} />
-            <Route path="/favorites" element={<FavoritePokemonList favorites={favorites} />} />
+            <Route
+              path="/favorites"
+              element={<FavoritePokemonList favorites={favorites} onAddFavorite={handleAddToFavorites} />}
+            />
             <Route path="/" element={<PokemonList />} />
           </Routes>
         </div>
