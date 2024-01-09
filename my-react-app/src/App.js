@@ -6,11 +6,13 @@ import PokemonDetails from './PokemonDetails';
 import FavoritePokemonList from './FavoritePokemonList';
 
 const App = () => {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([])
 
-  const handleAddToFavorites = (pokemon) => {
+   // eslint-disable-next-line no-unused-vars
+   const handleAddToFavorites = (pokemon) => {
     setFavorites((prevFavorites) => [...prevFavorites, pokemon]);
   };
+
 
   return (
     <Router>

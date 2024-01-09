@@ -23,7 +23,9 @@ interface PokemonDetailsProps {
 const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
   const { name } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null);
-  const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const [loading, setLoading] = useState(true);
+
   const [newPokemonName, setNewPokemonName] = useState('');
 
   useEffect(() => {
