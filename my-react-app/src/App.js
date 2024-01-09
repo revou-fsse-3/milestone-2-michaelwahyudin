@@ -9,10 +9,11 @@ import 'tailwindcss/tailwind.css';  // Import Tailwind CSS styles
 
 const App = () => {
   const [favorites, setFavorites] = useState([]);
+// eslint-disable-next-line no-unused-vars
+const handleAddToFavorites = (pokemon) => {
+  setFavorites((prevFavorites) => [...prevFavorites, pokemon]);
+};
 
-  const handleAddToFavorites = (pokemon) => {
-    setFavorites((prevFavorites) => [...prevFavorites, pokemon]);
-  };
 
   return (
     <Router>
