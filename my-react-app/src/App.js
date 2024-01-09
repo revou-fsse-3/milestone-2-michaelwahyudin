@@ -21,10 +21,7 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/favorites">Favorites</Link>
+              <Link to="/">Click to Start</Link>
             </li>
           </ul>
         </nav>
