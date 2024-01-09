@@ -5,6 +5,7 @@ import PokemonList from './PokemonList.tsx';
 import PokemonDetails from './PokemonDetails.tsx';
 import FavoritePokemonList from './FavoritePokemonList.tsx';
 
+
 const App = () => {
   const [favorites, setFavorites] = useState([])
 
