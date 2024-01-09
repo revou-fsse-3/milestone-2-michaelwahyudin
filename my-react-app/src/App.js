@@ -1,7 +1,7 @@
 // src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Update import
-import PokemonList from './PokemonList';
+import PokemonList from './PokemonList.tsx';
 import PokemonDetails from './PokemonDetails';
 import FavoritePokemonList from './FavoritePokemonList';
 
