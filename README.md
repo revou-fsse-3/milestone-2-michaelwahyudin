@@ -9,6 +9,6 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
-Gitpages backup of my [react web](https://revou-fsse-3.github.io/milestone-2-michaelwahyudin/)
+Here are my backup on [Git Pages](https://revou-fsse-3.github.io/milestone-2-michaelwahyudin/)
 
 to start the app click home 
