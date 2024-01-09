@@ -35,18 +35,28 @@ const PokemonList: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-3xl font-bold mb-4">Pokemon List</h2>
-      <div className="mb-4">
+      <div className="mb-4 flex items-center">
         <input
           type="text"
           placeholder="Search Pokemon"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          className="p-2 border rounded-md mr-2"
         />
-        <button onClick={handleSearch}>Search</button>
+        <button
+          onClick={handleSearch}
+          className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+        >
+          Search
+        </button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {filteredPokemonList.map((pokemonName) => (
-          <Link key={pokemonName} to={`/pokemon/${pokemonName.toLowerCase()}`}>
+          <Link
+            key={pokemonName}
+            to={`/pokemon/${pokemonName.toLowerCase()}`}
+            className="transition duration-300 transform hover:scale-105"
+          >
             <PokemonThumbnail name={pokemonName} />
           </Link>
         ))}
