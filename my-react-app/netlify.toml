@@ -2,4 +2,3 @@
   base = "./my-react-app"
   command = "npm run build"
   publish = "./my-react-app/build"
-  functions = "src"
