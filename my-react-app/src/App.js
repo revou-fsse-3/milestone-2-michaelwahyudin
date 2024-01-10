@@ -14,6 +14,15 @@ const App = () => {
     setFavorites((prevFavorites) => [...prevFavorites, pokemon]);
   };
 
+  const handleEditFavorite = (oldPokemon, newPokemon) => {
+    // Implement the logic to edit a favorite Pokemon
+    // This function should update the favorites state accordingly
+  };
+
+  const handleDeleteFavorite = (pokemon) => {
+    setFavorites((prevFavorites) => prevFavorites.filter((fav) => fav !== pokemon));
+  };
+
   return (
     <Router>
       <div className="bg-gray-100 min-h-screen">
@@ -33,11 +42,15 @@ const App = () => {
 
         <div className="container mx-auto p-4">
           <Routes>
-            <Route path="/pokemon/:name" element={<PokemonDetails />} />
             <Route
               path="/favorites"
-              element={<FavoritePokemonList favorites={favorites} onAddFavorite={handleAddToFavorites} />}
+              element={<FavoritePokemonList
+                          favorites={favorites}
+                          onAddFavorite={handleAddToFavorites}
+                          onEditFavorite={handleEditFavorite}
+                          onDeleteFavorite={handleDeleteFavorite} />}  // Pass onDeleteFavorite prop
             />
+            <Route path="/pokemon/:name" element={<PokemonDetails />} /> {/* Include PokemonDetails in Routes */}
             <Route path="/" element={<PokemonList />} />
           </Routes>
         </div>
