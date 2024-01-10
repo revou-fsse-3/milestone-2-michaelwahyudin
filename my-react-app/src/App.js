@@ -20,10 +20,10 @@ const App = () => {
         <nav className="bg-blue-500 p-4">
           <ul className="flex">
             <li className="mr-6">
-              <Link to="/" className="text-white">Home</Link>
+              <Link to="/" className="text-white"><h1>Home</h1></Link>
             </li>
             <li>
-              <Link to="/favorites" className="text-white">Favorites</Link>
+              <Link to="/favorites" className="text-white"><h1>Favorites</h1></Link>
             </li>
           </ul>
         </nav>

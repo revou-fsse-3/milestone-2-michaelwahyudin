@@ -38,6 +38,7 @@ const PokemonList = () => {
       </div>
 
       <div className="mb-4">
+        <h2>
         <input
           type="text"
           placeholder="Search Pokemon"
@@ -50,7 +51,7 @@ const PokemonList = () => {
           className="bg-blue-500 text-white py-2 px-4 rounded ml-2 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-300 ease-in-out"
         >
           Search
-        </button>
+        </button></h2>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
