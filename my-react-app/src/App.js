@@ -25,6 +25,9 @@ const App = () => {
             <li>
               <Link to="/favorites" className="text-white"><h1>Favorites</h1></Link>
             </li>
+            <li className="ml-auto">
+              <h1 className="text-lg text-white">Click Home to Start</h1>
+            </li>
           </ul>
         </nav>
 

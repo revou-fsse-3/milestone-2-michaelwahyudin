@@ -23,10 +23,9 @@ interface PokemonDetailsProps {
 const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
   const { name } = useParams();
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const [loading, setLoading] = useState(true);
-
+  const [loading, setLoading] = useState(true);
   const [newPokemonName, setNewPokemonName] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPokemonDetails = async () => {
@@ -38,8 +37,10 @@ const [loading, setLoading] = useState(true);
 
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
         setPokemonDetails(response.data);
+        setError(null); // Reset error if successful
       } catch (error) {
         console.error(`Error fetching details for ${name}:`, error);
+        setError(`Pokemon "${name}" not found!`);
       } finally {
         setLoading(false);
       }
@@ -58,10 +59,12 @@ const [loading, setLoading] = useState(true);
 
     try {
       setLoading(true);
+      setError(null); // Reset error before making a new request
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${newPokemonName.toLowerCase()}`);
       setPokemonDetails(response.data);
     } catch (error) {
       console.error(`Error fetching details for ${newPokemonName}:`, error);
+      setError(`Pokemon "${newPokemonName}" not found!`);
     } finally {
       setLoading(false);
     }
@@ -70,7 +73,11 @@ const [loading, setLoading] = useState(true);
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-3xl font-bold mb-4">{name} Details</h2>
-      {pokemonDetails ? (
+      {error ? (
+        <p className="text-red-500">{error}</p>
+      ) : loading ? (
+        <p>Loading...</p> // Consider using a loading spinner
+      ) : pokemonDetails ? (
         <div>
           <img src={pokemonDetails.sprites.front_default} alt={`${name} sprite`} className="mb-4" />
           <h3 className="text-xl font-semibold mb-2">Abilities</h3>
