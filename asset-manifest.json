@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/milestone-2-michaelwahyudin/static/css/main.6c6bb07c.css",
-    "main.js": "/milestone-2-michaelwahyudin/static/js/main.b6e10c68.js",
+    "main.css": "/milestone-2-michaelwahyudin/static/css/main.c664b956.css",
+    "main.js": "/milestone-2-michaelwahyudin/static/js/main.77f7d6d6.js",
     "static/js/787.38f16daf.chunk.js": "/milestone-2-michaelwahyudin/static/js/787.38f16daf.chunk.js",
     "index.html": "/milestone-2-michaelwahyudin/index.html",
-    "main.6c6bb07c.css.map": "/milestone-2-michaelwahyudin/static/css/main.6c6bb07c.css.map",
-    "main.b6e10c68.js.map": "/milestone-2-michaelwahyudin/static/js/main.b6e10c68.js.map",
+    "main.c664b956.css.map": "/milestone-2-michaelwahyudin/static/css/main.c664b956.css.map",
+    "main.77f7d6d6.js.map": "/milestone-2-michaelwahyudin/static/js/main.77f7d6d6.js.map",
     "787.38f16daf.chunk.js.map": "/milestone-2-michaelwahyudin/static/js/787.38f16daf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c6bb07c.css",
-    "static/js/main.b6e10c68.js"
+    "static/css/main.c664b956.css",
+    "static/js/main.77f7d6d6.js"
   ]
 }
