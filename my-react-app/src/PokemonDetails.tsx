@@ -62,6 +62,7 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
       setError(null); // Reset error before making a new request
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${newPokemonName.toLowerCase()}`);
       setPokemonDetails(response.data);
+      setNewPokemonName(''); // Clear the input after successful fetch
     } catch (error) {
       console.error(`Error fetching details for ${newPokemonName}:`, error);
       setError(`Pokemon "${newPokemonName}" not found!`);
@@ -72,14 +73,14 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4">{name} Details</h2>
+      <h2 className="text-3xl font-bold mb-4">{pokemonDetails?.name} Details</h2>
       {error ? (
         <p className="text-red-500">{error}</p>
       ) : loading ? (
         <p>Loading...</p> // Consider using a loading spinner
       ) : pokemonDetails ? (
         <div>
-          <img src={pokemonDetails.sprites.front_default} alt={`${name} sprite`} className="mb-4" />
+          <img src={pokemonDetails.sprites.front_default} alt={`${pokemonDetails.name} sprite`} className="mb-4" />
           <h3 className="text-xl font-semibold mb-2">Abilities</h3>
           <ul className="list-disc pl-4">
             {pokemonDetails.abilities.map((ability, index) => (
@@ -93,7 +94,7 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
 
       <form onSubmit={handleSubmit} className="mt-6">
         <label className="block mb-2">
-          Enter a Pokemon name:
+          Enter a Pokemon name or number:
           <input
             type="text"
             value={newPokemonName}
