@@ -35,7 +35,9 @@ const App = () => {
               <Link to="/favorites" className="text-white"><h1>Favorites</h1></Link>
             </li>
             <li className="ml-auto">
-              <h1 className="text-lg text-white">Click Home to Start</h1>
+              <h1 className="text-lg text-white">
+                Click "Home" to Start Exploring Pokemon
+              </h1>
             </li>
           </ul>
         </nav>
@@ -50,7 +52,7 @@ const App = () => {
                           onEditFavorite={handleEditFavorite}
                           onDeleteFavorite={handleDeleteFavorite} />}  // Pass onDeleteFavorite prop
             />
-            <Route path="/pokemon/:name" element={<PokemonDetails />} /> {/* Include PokemonDetails in Routes */}
+            <Route path="/pokemon/:name" element={<PokemonDetails />} />
             <Route path="/" element={<PokemonList />} />
           </Routes>
         </div>

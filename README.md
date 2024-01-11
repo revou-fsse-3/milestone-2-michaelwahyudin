@@ -1,5 +1,9 @@
 This is my React project for revou
-I have uploaded it into my [react web](https://michwrevou2.netlify.app/)
+
+Here is my [Git Pages](https://revou-fsse-3.github.io/milestone-2-michaelwahyudin/)
+
+to start the app click home 
+ 
 
 In the project directory(use npm start on 'my-app' folder), you can run:
 
@@ -35,6 +39,6 @@ Project Req
 
 
 
-Here are my backup on [Git Pages](https://revou-fsse-3.github.io/milestone-2-michaelwahyudin/)
+Here are my backup on [react web](https://michwrevou2.netlify.app/)
 
-to start the app click home 
+
