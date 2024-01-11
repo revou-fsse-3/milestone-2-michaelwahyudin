@@ -77,7 +77,11 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = () => {
       {error ? (
         <p className="text-red-500">{error}</p>
       ) : loading ? (
-        <p>Loading...</p> // Consider using a loading spinner
+        // Tailwind CSS loading spinner
+        <div className="flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-blue-500 border-r-2 border-b-2 border-blue-500"></div>
+          <p className="ml-4">Loading...</p>
+        </div>
       ) : pokemonDetails ? (
         <div>
           <img src={pokemonDetails.sprites.front_default} alt={`${pokemonDetails.name} sprite`} className="mb-4" />
