@@ -39,6 +39,6 @@ Project Req
 
 
 
-Here are my backup on [react web](https://michwrevou2.netlify.app/)
+Here are my backup on [react web](https://michwrevou2.netlify.app/) on netlify
 
 
